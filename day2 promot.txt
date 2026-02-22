@@ -1,0 +1,305 @@
+PROJECT PROMPT: “Student Academic Portal” (Only HTML)
+
+Create a single-page academic portal using only HTML.
+
+You must use:
+
+Semantic tags
+
+Lists (all types)
+
+Table
+
+Form (full)
+
+Image
+
+Audio or Video
+
+Iframe
+
+Entities
+
+Global attributes
+
+Proper heading hierarchy
+
+No <div> spam. Use meaning.
+
+🧱 1️⃣ Basic Structure (Non-Negotiable)
+
+Your page must include:
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport">
+
+<body>
+
+If this is wrong, stop everything.
+
+🏫 2️⃣ Header Section
+
+Use:
+
+<header>
+
+One <h1> (Portal Name)
+
+A tagline inside <p>
+
+Use <strong> and <em> somewhere
+
+Add:
+
+title attribute to heading
+
+🧭 3️⃣ Navigation
+
+Use:
+
+<nav>
+
+<ul>
+
+<li>
+
+<a> with internal links using #id
+
+Sections to link:
+
+About
+
+Courses
+
+Schedule
+
+Media
+
+Registration
+
+Contact
+
+📚 4️⃣ Main Content
+
+Wrap everything inside <main>.
+
+📌 Section 1: About the Portal
+
+Use:
+
+<section>
+
+<h2>
+
+Paragraphs
+
+<span>
+
+<br>
+
+<hr>
+
+At least 2 HTML entities (&copy;, &lt;, &gt;, &nbsp;)
+
+Add:
+
+id attribute for navigation linking
+
+One data-* attribute
+
+📘 Section 2: Courses Offered
+
+Use:
+
+<section>
+
+<h2>
+
+Inside it:
+
+Unordered list → Course names
+
+Ordered list → Steps to enroll
+
+Definition list → Course + description
+
+Make it structured. Not messy.
+
+📊 Section 3: Weekly Class Schedule
+
+Use a proper table:
+
+<table>
+
+<thead>
+
+<tbody>
+
+<tr>
+
+<th>
+
+<td>
+
+Columns:
+
+Day
+
+Subject
+
+Faculty
+
+Room No.
+
+No missing headers.
+
+🖼 Section 4: Media
+
+Use:
+
+<section>
+
+<h2>
+
+Inside include:
+
+One <img> (with proper alt)
+
+One <audio> OR <video>
+
+One <iframe> (YouTube or Google Map)
+
+🧠 Section 5: Article + Aside
+
+Use:
+
+<article> → Write about “Importance of Web Development”
+
+<aside> → Quick tips for students (list format)
+
+📝 5️⃣ Registration Form
+
+This must be serious.
+
+Use:
+
+<section>
+
+<h2>
+
+<form>
+
+method
+
+action
+
+Include fields:
+
+Personal Details
+
+Name (text, required)
+
+Email (email, required)
+
+Phone (tel, pattern)
+
+Date of Birth (date)
+
+Gender
+
+Radio buttons
+
+Skills
+
+Checkboxes
+
+Department
+
+Dropdown (<select> + <option>)
+
+Address
+
+<textarea> (maxlength)
+
+File Upload
+
+Student ID upload
+
+Buttons
+
+Submit
+
+Reset
+
+Use:
+
+<label> properly linked with for
+
+placeholder
+
+required
+
+pattern
+
+maxlength
+
+If labels are not properly connected, you’re careless.
+
+📞 6️⃣ Footer
+
+Use:
+
+<footer>
+
+Contact email using mailto:
+
+Phone using tel:
+
+Use &copy;
+
+Add year manually
+
+🎯 Extra Strict Rules
+
+You must include:
+
+id
+
+class
+
+title
+
+data-* attribute
+
+contenteditable (somewhere meaningful)
+
+At least 3 different entities
+
+Proper heading hierarchy (no jumping)
+
+No skipping <h2> and going to <h4>.
+
+💣 Final Evaluation (Be Honest)
+
+If while building you:
+
+Forget tag nesting
+
+Mess up form structure
+
+Struggle with table
+
+Don’t know where to use semantic tags
+
+That’s your weakness.
+
+Fix it before moving to CSS.
