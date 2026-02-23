@@ -2,97 +2,399 @@
 <html>
 <head>
     <title>Abhishek_BN - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            padding: 20px;
+            animation: backgroundShift 10s ease-in-out infinite alternate;
+        }
+        
+        @keyframes backgroundShift {
+            0% { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); }
+            100% { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #ffd89b 100%); }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: floatUp 0.8s ease-out;
+            transform: translateY(0);
+        }
+        
+        @keyframes floatUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '👋';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3em;
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-10deg); }
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+            to { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.3); }
+        }
+        
+        .header h3 {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            font-weight: 300;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #667eea);
+            border-radius: 2px;
+            animation: expand 0.5s ease-out 0.3s both;
+        }
+        
+        @keyframes expand {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+        
+        .section p {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1em;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, #fff5f5, #f0f8ff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #ff9a9e;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 154, 158, 0.2);
+            background: linear-gradient(135deg, #fff0f5, #e6f3ff);
+        }
+        
+        .skill-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .projects-table th {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #2c3e50;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .projects-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .projects-table tr:hover {
+            background: linear-gradient(135deg, #fff5f5, #f0f8ff);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fff5f5, #f0f8ff);
+            border-radius: 15px;
+            border-left: 5px solid #fecfef;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(254, 207, 239, 0.3);
+        }
+        
+        .experience-item::before {
+            content: '✨';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5em;
+            opacity: 0.7;
+        }
+        
+        .experience-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .experience-item li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .contact-links {
+            text-align: center;
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .contact-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .contact-links a:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 154, 158, 0.4);
+            color: white;
+        }
+        
+        .contact-links a:hover::before {
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .contact-links a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
-<body bgcolor="#f5f5f5">
-    <center>
-        <table width="800" cellpadding="20" bgcolor="white" border="1" bordercolor="#ddd">
-            <tr>
-                <td align="center">
-                    <h1>Abhishek_BN</h1>
-                    <h3>Learning Full Stack Development</h3>
-                    <p><i>Email: abhishekbn9743@gmail.com | Phone: 9844075377 </i></p>
-                    <hr>
-                </td>
-            </tr>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Abhishek BN</h1>
+            <h3>Learning Full Stack Development</h3>
+            <div class="contact-info">
+                <p>abhishekbn9743@gmail.com | +91 9844075377</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Passionately learning full stack development with a drive to build innovative web applications. 
+            Currently developing skills in both frontend and backend technologies with a focus on creating user-friendly solutions and modern development practices.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Skills in Progress</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <strong>Frontend</strong>
+                    HTML, CSS, JavaScript, React
+                </div>
+                <div class="skill-item">
+                    <strong>Backend</strong>
+                    Node.js, Python, Java
+                </div>
+                <div class="skill-item">
+                    <strong>Database</strong>
+                    MySQL, MongoDB
+                </div>
+                <div class="skill-item">
+                    <strong>Tools</strong>
+                    Git, Docker, AWS
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Projects</h2>
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Description</th>
+                        <th>Technologies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>E-Commerce Website</strong></td>
+                        <td>Full-featured online store with payment integration</td>
+                        <td>React, Node.js, MongoDB</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Task Management App</strong></td>
+                        <td>Collaborative project management tool</td>
+                        <td>Vue.js, Express, MySQL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weather Dashboard</strong></td>
+                        <td>Real-time weather tracking application</td>
+                        <td>HTML, JavaScript, API</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h4>Senior Developer - Tech Solutions Inc. (2021-Present)</h4>
+                <ul>
+                    <li>Led development of 3 major web applications</li>
+                    <li>Mentored junior developers</li>
+                    <li>Improved system performance by 40%</li>
+                </ul>
+            </div>
             
-            <tr>
-                <td>
-                    <h2>About Me</h2>
-                    <p>Passionately Learning full stack developement without any experience trying to build web applications. 
-                    Getting skilled in both frontend and backend technologies with a focus on creating user-friendly solutions.</p>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <h2>Yet to learn Skills</h2>
-                    <ul>
-                        <li><b>Frontend:</b> HTML, CSS, JavaScript, React</li>
-                        <li><b>Backend:</b> Node.js, Python, Java</li>
-                        <li><b>Database:</b> MySQL, MongoDB</li>
-                        <li><b>Tools:</b> Git, Docker, AWS</li>
-                    </ul>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <h2>Projects</h2>
-                    <table width="100%" border="1" cellpadding="10">
-                        <tr bgcolor="#f0f0f0">
-                            <th>Project Name</th>
-                            <th>Description</th>
-                            <th>Technologies</th>
-                        </tr>
-                        <tr>
-                            <td><b>E-Commerce Website</b></td>
-                            <td>Full-featured online store with payment integration</td>
-                            <td>React, Node.js, MongoDB</td>
-                        </tr>
-                        <tr>
-                            <td><b>Task Management App</b></td>
-                            <td>Collaborative project management tool</td>
-                            <td>Vue.js, Express, MySQL</td>
-                        </tr>
-                        <tr>
-                            <td><b>Weather Dashboard</b></td>
-                            <td>Real-time weather tracking application</td>
-                            <td>HTML, JavaScript, API</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <h2>Experience</h2>
-                    <p><b>Senior Developer</b> - Tech Solutions Inc. (2021-Present)</p>
-                    <ul>
-                        <li>Led development of 3 major web applications</li>
-                        <li>Mentored junior developers</li>
-                        <li>Improved system performance by 40%</li>
-                    </ul>
-                    
-                    <p><b>Full Stack Developer</b> - StartUp Co. (2019-2021)</p>
-                    <ul>
-                        <li>Built responsive web applications</li>
-                        <li>Implemented RESTful APIs</li>
-                        <li>Collaborated with design team</li>
-                    </ul>
-                </td>
-            </tr>
-            
-            <tr>
-                <td align="center">
-                    <h2>Contact</h2>
-                    <p>
-                        <a href="mailto:abhishekbn9743@gmail.com">Email</a> | 
-                        <a href="https://linkedin.com/in/Abhishek_BN">LinkedIn</a> | 
-                        <a href="https://github.com/Abhishek_BN">GitHub</a>
-                    </p>
-                </td>
-            </tr>
-        </table>
-    </center>
+            <div class="experience-item">
+                <h4>Full Stack Developer - StartUp Co. (2019-2021)</h4>
+                <ul>
+                    <li>Built responsive web applications</li>
+                    <li>Implemented RESTful APIs</li>
+                    <li>Collaborated with design team</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="contact-links">
+            <h2>Let's Connect</h2>
+            <a href="https://mail.google.com/mail/u/0/#inbox">Email</a>
+            <a href="https://www.linkedin.com/in/abhishek-bn/">LinkedIn</a>
+            <a href="https://github.com/abhishekbn9743-git/Abhishek_BN">GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
